@@ -1,0 +1,100 @@
+{
+  "cities": [
+    {
+      "cityName": "Lisbon",
+      "country": "Portugal",
+      "emoji": "🏳️‍🌈",
+      "date": "2027-10-31T15:59:59.138Z",
+      "notes": "My favorite city so far!",
+      "position": {
+        "lat": 38.727881642324164,
+        "lng": -9.140900099907554
+      },
+      "id": "73930385"
+    },
+    {
+      "id": "6a52",
+      "cityName": "Gwagwalada",
+      "country": "Nigeria",
+      "emoji": "🏳️‍🌈",
+      "date": "2024-06-06T15:17:43.531Z",
+      "notes": "",
+      "position": {
+        "lat": "8.925095420384254",
+        "lng": "7.069617765434955"
+      }
+    },
+    {
+      "id": "c62a",
+      "cityName": "Abuja",
+      "country": "Nigeria",
+      "emoji": "🏳️‍🌈",
+      "date": "2024-06-12T12:29:09.065Z",
+      "notes": "",
+      "position": {
+        "lat": "9.117495860971838",
+        "lng": "7.283935546875001"
+      }
+    },
+    {
+      "id": "31f6",
+      "cityName": "Hontoba",
+      "country": "Spain",
+      "emoji": "🏳️‍🌈",
+      "date": "2024-06-20T07:55:48.103Z",
+      "notes": "",
+      "position": {
+        "lat": "40.46585344846843",
+        "lng": "-3.0551646548753446"
+      }
+    },
+    {
+      "id": "0f87",
+      "cityName": "Lagos",
+      "country": "Nigeria",
+      "emoji": "🏳️‍🌈",
+      "date": "2024-06-20T07:58:57.971Z",
+      "notes": "Amazing trip, but the city trafffic is so horrible😱",
+      "position": {
+        "lat": "6.495395693364788",
+        "lng": "3.6254882812500004"
+      }
+    },
+    {
+      "id": "9a63",
+      "cityName": "Lekki",
+      "country": "Nigeria",
+      "emoji": "🏳️‍🌈",
+      "date": "2024-06-20T08:07:09.899Z",
+      "notes": "A wonderful city location to reside, will definitely buy a house there👌",
+      "position": {
+        "lat": "6.47565597921088",
+        "lng": "3.760757446289063"
+      }
+    },
+    {
+      "id": "b1b4",
+      "cityName": "Ondo",
+      "country": "Nigeria",
+      "emoji": "🏳️‍🌈",
+      "date": "2024-06-20T08:18:59.337Z",
+      "notes": "It was an awesome adventure at oke idanre (mare) festival",
+      "position": {
+        "lat": "7.035475652433024",
+        "lng": "4.987792968750001"
+      }
+    },
+    {
+      "id": "6292",
+      "cityName": "Hontanar",
+      "country": "Spain",
+      "emoji": "🏳️‍🌈",
+      "date": "2024-06-20T08:29:30.121Z",
+      "notes": "",
+      "position": {
+        "lat": "39.50404070558415",
+        "lng": "-4.592285156250001"
+      }
+    }
+  ]
+}
