@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
-import { useEffect } from "react";
-import { useCities } from "../Contexts/CityContext";
+
 import Spinner from "./Spinner";
 import BackButton from "./BackButton";
+import { useCity } from "../features/cities/useCity";
+import Message from "./Message";
+import Flag from "./Flag";
 
 const formatDate = (date) =>
 	new Intl.DateTimeFormat("en", {
@@ -16,25 +18,26 @@ const formatDate = (date) =>
 function City() {
 	// Getting data stored into the url with useParams
 	const { id } = useParams();
-	// console.log(id);
-	const { getCity, currentCity, isLoading } = useCities();
 
-	useEffect(
-		function () {
-			getCity(id);
-		},
-		[id, getCity]
-	);
+	const { city, isLoading, isError } = useCity(id);
 
-	const { cityName, emoji, date, notes } = currentCity;
+	console.log("HEY YOU CITY:", city);
 
 	if (isLoading) return <Spinner />;
+
+	if (isError)
+		return <Message message="Something went wrong fetching cities" />;
+
+	const { cityName, emoji, date, notes } = city;
+
 	return (
 		<div className={styles.city}>
 			<div className={styles.row}>
 				<h6>City name</h6>
 				<h3>
-					<span>{emoji}</span> {cityName}
+					{/* <span>{emoji}</span>  */}
+					{emoji.length <= 6 ? <span>{emoji}</span> : <Flag country={city} />}
+					{cityName}
 				</h3>
 			</div>
 

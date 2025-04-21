@@ -9,9 +9,6 @@ import supabase from "../services/cities";
 
 const CitiesContext = createContext();
 
-
-
-
 function reducer(state, action) {
 	switch (action.type) {
 		case "loading":

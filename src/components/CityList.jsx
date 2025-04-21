@@ -2,12 +2,18 @@ import Spinner from "./Spinner";
 import styles from "./CityList.module.css";
 import CityItem from "./CityItem";
 import Message from "./Message";
-import { useCities } from "../Contexts/CityContext";
+import { useCities } from "../features/cities/useCities";
+
+// const { cities, isLoading } = useCities();
+// console.log(cities);
 
 function CityList() {
-	const { cities, isLoading } = useCities();
+	const { cities, isLoading, isError } = useCities();
+
 	if (isLoading) return <Spinner />;
-	// console.log(cities);
+
+	if (isError)
+		return <Message message="Something went wrong fetching cities" />;
 
 	if (!cities.length)
 		return (
@@ -17,7 +23,7 @@ function CityList() {
 	return (
 		<ul className={styles.cityList}>
 			{cities.map((city) => (
-				<CityItem city={city} key={city.id} />
+				<CityItem city={city} key={city._id} />
 			))}
 			{/* <CityItem /> */}
 		</ul>

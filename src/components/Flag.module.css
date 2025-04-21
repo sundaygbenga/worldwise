@@ -1,0 +1,10 @@
+.Flag {
+	display: block;
+	max-width: 2.9rem;
+	border-radius: 3px;
+	border: 1px solid #f3f4f6;
+}
+
+.wrapper {
+	padding: 5px 0;
+}

@@ -11,8 +11,8 @@ import styles from "./Form.module.css";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import Message from "./Message";
 import Spinner from "./Spinner";
-import { useCities } from "../Contexts/CityContext";
 import { useNavigate } from "react-router-dom";
+import { useCreateCity } from "../features/cities/useCreateCity";
 
 export function convertToEmoji(countryCode) {
 	const codePoints = countryCode
@@ -26,7 +26,7 @@ const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 function Form() {
 	const { lat, lng } = useUrlPosition();
-	const { createCity, isLoading } = useCities();
+	const { createCity, isLoading } = useCreateCity();
 	const navigate = useNavigate();
 
 	const [isLoadingGeocoding, setIsLoadingGeocoding] = useState();
@@ -35,6 +35,7 @@ function Form() {
 	const [date, setDate] = useState(new Date());
 	const [notes, setNotes] = useState("");
 	const [emoji, setEmoji] = useState("");
+	const [flag, setFlag] = useState("");
 	const [geoCodingError, setGeoCodingError] = useState("");
 
 	useEffect(
@@ -56,7 +57,8 @@ function Form() {
 
 					setCityName(data.city || data.locality || "");
 					setCountry(data.countryName);
-					setEmoji(convertToEmoji(data.countryCode));
+					setEmoji(`https://flagcdn.com/${data.countryCode.toLowerCase()}.svg`);
+					setFlag(convertToEmoji(data.countryCode));
 				} catch (err) {
 					setGeoCodingError(err.message);
 				} finally {
@@ -76,7 +78,7 @@ function Form() {
 		const newCity = {
 			cityName,
 			country,
-			emoji: "🏳️‍🌈",
+			emoji,
 			date,
 			notes,
 			position: { lat, lng },
@@ -105,7 +107,7 @@ function Form() {
 					onChange={(e) => setCityName(e.target.value)}
 					value={cityName}
 				/>
-				<span className={styles.flag}>{emoji}</span>
+				<span className={styles.flag}>{flag}</span>
 			</div>
 
 			<div className={styles.row}>
@@ -129,7 +131,7 @@ function Form() {
 			</div>
 
 			<div className={styles.buttons}>
-				<Button type="primary">Add</Button>
+				<Button type="primary">{isLoading ? "Adding..." : "Add"}</Button>
 				<BackButton />
 			</div>
 		</form>

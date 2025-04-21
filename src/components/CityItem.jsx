@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import styles from "./CityItem.module.css";
-import { useCities } from "../Contexts/CityContext";
+import { useDeleteCity } from "../features/cities/useDeleteCity";
+import Spinner from "./Spinner";
+import Flag from "./Flag";
 
 const formatDate = (date) =>
 	new Intl.DateTimeFormat("en", {
@@ -10,8 +12,8 @@ const formatDate = (date) =>
 	}).format(new Date(date));
 
 function CityItem({ city }) {
-	const { currentCity, deleteCity } = useCities();
-	const { cityName, emoji, date, id, position } = city;
+	const { cityName, emoji, date, _id: id, position } = city;
+	const { deleteCity, isDeleting } = useDeleteCity(id);
 
 	const optCityName = cityName
 		.split(" ")
@@ -23,8 +25,10 @@ function CityItem({ city }) {
 
 	function handleClick(e) {
 		e.preventDefault();
-		deleteCity(id);
+		deleteCity();
 	}
+
+	if (isDeleting) return <Spinner />;
 
 	return (
 		<li>
@@ -32,11 +36,15 @@ function CityItem({ city }) {
 
 			<Link
 				className={`${styles.cityItem} ${
-					id === currentCity.id ? styles["cityItem--active"] : ""
+					id === city._id ? styles["cityItem--active"] : ""
 				}`}
 				to={`${id}?lat=${position.lat}&lng=${position.lng}`}
 			>
-				<span className={styles.emoji}>{emoji}</span>
+				{emoji.length <= 6 ? (
+					<span className={styles.emoji}>{emoji}</span>
+				) : (
+					<Flag country={city} />
+				)}
 				<h3 className={styles.name}>
 					{
 						// optCityName
