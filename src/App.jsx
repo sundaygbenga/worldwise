@@ -12,6 +12,7 @@ import Form from "./components/Form";
 import SpinnerFullpage from "./components/SpinnerFullpage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "react-hot-toast";
 
 // import Homepage from "./pages/Homepage";
 // import Product from "./pages/Product";
@@ -25,6 +26,7 @@ const Homepage = lazy(() => import("./pages/Homepage"));
 const Product = lazy(() => import("./pages/Product"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Login = lazy(() => import("./pages/Login"));
+const SignUp = lazy(() => import("./pages/SignUp"));
 const AppLayout = lazy(() => import("./pages/AppLayout"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 
@@ -49,6 +51,7 @@ function App() {
 								<Route path="product" element={<Product />} />
 								<Route path="pricing" element={<Pricing />} />
 								<Route path="login" element={<Login />} />
+								<Route path="sign-up" element={<SignUp />} />
 								<Route
 									path="app"
 									element={
@@ -72,6 +75,28 @@ function App() {
 					</BrowserRouter>
 				</AuthProvider>
 			</CitiesProvider>
+			<Toaster
+				position="top-center"
+				gutter={12}
+				containerStyle={{
+					margin: "8px",
+				}}
+				toastOptions={{
+					success: {
+						duration: 3000,
+					},
+					error: {
+						duration: 5000,
+					},
+					style: {
+						fontSize: "16px",
+						maxWidth: "500px",
+						padding: "16px 24px",
+						backgroundColor: "#fff",
+						color: "#374151",
+					},
+				}}
+			/>
 		</QueryClientProvider>
 	);
 }

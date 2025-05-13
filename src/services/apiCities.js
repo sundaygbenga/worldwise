@@ -1,17 +1,14 @@
-import { AUTH_TOKEN, BASE_URL } from "../constants/constants";
+import { BASE_URL, headers } from "../constants";
 
 export async function createCity(newCity, cityId) {
 	const res = await fetch(`${BASE_URL}/cities`, {
 		method: "POST",
-		headers: {
-			"content-type": "application/json",
-			Authorization: `Bearer ${AUTH_TOKEN}`,
-		},
+		headers: headers,
 		body: JSON.stringify(newCity),
 	});
 
 	if (!res.ok) {
-		throw new Error(`Failed to create city: ${res.status}`);
+		throw new Error(`(${res.status}) Failed to create city`);
 	}
 
 	const data = await res.json();
@@ -47,10 +44,7 @@ export async function getCityById(cityId) {
 export async function deleteCity(cityId) {
 	const res = await fetch(`${BASE_URL}/cities/${cityId}`, {
 		method: "DELETE",
-		headers: {
-			"content-type": "application/json",
-			Authorization: `Bearer ${AUTH_TOKEN}`,
-		},
+		headers: headers,
 	});
 
 	if (!res.ok) {

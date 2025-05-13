@@ -7,10 +7,16 @@ export default function Homepage() {
 		<main className={styles.homepage}>
 			<PageNav></PageNav>
 			<section>
-				<h1>
-					You travel the world.
+				<h1 className="text-5xl font-bold">
+					You <span className="text-yellow-500  font-bold">travel</span> the
+					world.
 					<br />
-					WorldWise keeps track of your adventures.
+					<span className="text-yellow-500 text-5xl- font-bold">
+						{" "}
+						WorldWise
+					</span>{" "}
+					keeps track of your{" "}
+					<span className="text-yellow-500  font-bold">adventures</span>.
 				</h1>
 				<h2>
 					A world map that tracks your footsteps into every city you can think

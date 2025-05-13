@@ -9,6 +9,7 @@ export function useCity(cityId) {
 	} = useQuery({
 		queryKey: ["city", cityId],
 		queryFn: () => getCityById(cityId),
+		enabled: !!cityId,
 	});
 
 	return { city, isLoading, isError };

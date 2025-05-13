@@ -11,7 +11,6 @@ import styles from "./Form.module.css";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import Message from "./Message";
 import Spinner from "./Spinner";
-import { useNavigate } from "react-router-dom";
 import { useCreateCity } from "../features/cities/useCreateCity";
 
 export function convertToEmoji(countryCode) {
@@ -27,7 +26,6 @@ const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 function Form() {
 	const { lat, lng } = useUrlPosition();
 	const { createCity, isLoading } = useCreateCity();
-	const navigate = useNavigate();
 
 	const [isLoadingGeocoding, setIsLoadingGeocoding] = useState();
 	const [cityName, setCityName] = useState("");
@@ -71,7 +69,7 @@ function Form() {
 	);
 
 	// MAking handler function an async function to  make the navigate work as supposed
-	async function handleSubmit(e) {
+	function handleSubmit(e) {
 		e.preventDefault();
 		if (!cityName || !date) return;
 
@@ -84,8 +82,7 @@ function Form() {
 			position: { lat, lng },
 		};
 
-		await createCity(newCity);
-		navigate("/app/cities");
+		createCity(newCity);
 	}
 
 	if (!lat && !lng)

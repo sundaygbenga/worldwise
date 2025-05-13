@@ -40,6 +40,9 @@
 	aspect-ratio: 1;
 	border-radius: 50%;
 	border: none;
+	justify-content: center;
+	align-items: center;
+	display: flex;
 	background-color: var(--color-dark--1);
 	color: var(--color-light--2);
 	font-size: 1.6rem;

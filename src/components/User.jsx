@@ -1,21 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Contexts/FakeAuthContext";
 import styles from "./User.module.css";
+import { useUser } from "../features/auth/useUser";
+import { useLogOut } from "../features/auth/useLogout";
 
 function User() {
-	const { user, logout } = useAuth();
-	const navigate = useNavigate();
+	const { signOut } = useLogOut();
+	const { user } = useUser();
+	// if (isFetchingUser) return <p>Loading...</p>;
 
 	if (!user) return;
 
 	function handleClick() {
-		logout();
-		navigate("/");
+		signOut();
 	}
 
 	return (
 		<div className={styles.user}>
-			<img src={user.avatar} alt={user.name} />
+			<img src="https://i.pravatar.cc/100?u=zz" alt={user.name} />
 			<span>Welcome, {user.name}</span>
 			<button onClick={handleClick}>Logout</button>
 		</div>

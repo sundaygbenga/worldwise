@@ -1,43 +1,26 @@
 .login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
 	padding: 2.5rem 5rem;
 	background-color: var(--color-dark--1);
 	min-height: 100vh;
 }
 
-.form {
-	background-color: var(--color-dark--2);
-	border-radius: 7px;
-	padding: 2rem 3rem;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-
-	/* Different from other form */
-	width: 48rem;
-	margin: 8rem auto;
+@media (max-width: 835px) {
+	.login {
+		margin: 0.5rem;
+		gap: 10rem;
+		align-items: center;
+		height: 100vh;
+	}
 }
-
-.row {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-}
-
 @media (max-width: 620px) {
 	.login {
 		margin: 0.5rem;
-	}
-
-	.form {
-		width: 35rem;
-	}
-}
-@media (max-width: 500px) {
-	.login {
+		gap: 2rem;
+		align-items: center;
 		height: 100vh;
-	}
-	.form {
-		width: 27rem;
 	}
 }

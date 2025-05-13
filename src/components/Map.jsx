@@ -45,7 +45,7 @@ function Map() {
 	);
 
 	return (
-		<div className={styles.mapContainer}>
+		<div className={`${styles.mapContainer}`}>
 			{!geoLocationPosition && (
 				<Button type="position" onClick={getPosition}>
 					{isLoadingPosition ? "Loading..." : "Use your position"}
@@ -55,7 +55,7 @@ function Map() {
 				center={mapPosition}
 				zoom={6}
 				scrollWheelZoom={true}
-				className={styles.map}
+				className={` ${styles.map}`}
 			>
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -91,7 +91,6 @@ function ChangeCenter({ position }) {
 
 function DetectClick() {
 	const navigate = useNavigate();
-
 	useMapEvent({
 		click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
 	});

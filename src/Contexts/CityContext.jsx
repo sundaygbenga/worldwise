@@ -92,15 +92,14 @@ function CitiesProvider({ children }) {
 
 			dispatch({ type: "loading" });
 			try {
-				const { data, error } = await supabase
-					.from("cities")
-					.select("*")
-					.eq("id", id);
+				// const { data, error } = await supabase
+				const { data } = await supabase.from("cities").select("*").eq("id", id);
 
 				const [city] = data;
 
 				dispatch({ type: "city/loaded", payload: city });
-			} catch {
+			} catch (error) {
+				console.error(error);
 				dispatch({
 					type: "rejected",
 					payload: "There was an error loading city...",

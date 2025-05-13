@@ -1,3 +1,0 @@
-export const BASE_URL = "http://localhost:5500/api/v1";
-export const AUTH_TOKEN =
-	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODAyNjdkM2UzZWFlNGFlNzIwNTZhZTAiLCJ1c2VyRW1haWwiOiJjb250YWN0QHN1bmZsaXp0ZWNoLnRlY2giLCJpYXQiOjE3NDUyNTM2MjEsImV4cCI6MTc0NTM0MDAyMX0.puRbOtIMVF8uiclg6iwrmOxh402Ut_BtkchxZlyjYXM";

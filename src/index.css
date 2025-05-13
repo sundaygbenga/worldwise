@@ -2,6 +2,8 @@
 @import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
 @import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap";
 
+@import "tailwindcss";
+
 /* These CSS variables are global, so they are available in all CSS modules */
 :root {
 	--color-brand--1: #ffb545;
@@ -45,7 +47,9 @@ textarea {
 	font-family: inherit;
 	font-size: 1.6rem;
 	border: none;
+	font-weight: 600;
 	border-radius: 5px;
+	color: var(--color-dark--1);
 	background-color: var(--color-light--3);
 	transition: all 0.2s;
 }
